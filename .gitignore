@@ -1,0 +1,22 @@
+# Node / Electron
+node_modules/
+dist/
+dist_build/
+.fpm/
+*.AppImage
+*.deb
+*.snap
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite / TS
+.vite/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
