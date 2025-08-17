@@ -5,7 +5,7 @@ let win: any;
 
 
 function createWindow() {
-	const tray = new Tray('./src/assets/images/cover.png');
+	const tray = new Tray('src/assets/images/cover.png');
 	tray.setToolTip('Calendrier');
 	win = new BrowserWindow({
 		width: 800,
