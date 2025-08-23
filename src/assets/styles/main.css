@@ -15,6 +15,7 @@
     --display: none;
     --theme-app-bg: #292830;
     --theme-app-text: #ffffff;
+    --theme-loading-bg: #292830;
 }
 
 * {
@@ -42,12 +43,14 @@ body {
     --theme-menu-bg: #181818;
     --theme-app-bg: #292830;
     --theme-app-text: #ffffff;
+    --theme-loading-bg: #292830;
 }
 
 .light {
     --theme-menu-bg: #e6e6fa;
     --theme-app-bg: #0000ff55;
     --theme-app-text: #292830;
+    --theme-loading-bg: #a1a1f2;
 }
 
 .header {
@@ -60,6 +63,7 @@ body {
     padding: .5rem;
     padding-inline: 1rem;
     display: flex;
+    z-index: 999999;
     align-items: center;
     justify-content: space-between;
 }
@@ -120,18 +124,18 @@ body {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.8rem;
-  }
+    margin-bottom: 0.4rem;
+}
 
-  /* Simple switch style */
-  .switch {
+.switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
-  }
-  .switch input { display:none; }
-  .slider {
+}
+
+.switch input { display:none; }
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -141,8 +145,8 @@ body {
     background-color: #ccc;
     border-radius: 34px;
     transition: .2s;
-  }
-  .slider:before {
+}
+.slider:before {
     position: absolute;
     content: "";
     height: 16px;
@@ -152,14 +156,13 @@ body {
     background-color: white;
     border-radius: 50%;
     transition: .2s;
-  }
-  input:checked + .slider {
+}
+input:checked + .slider {
     background-color: #4caf50;
-  }
-  input:checked + .slider:before {
+}
+input:checked + .slider:before {
     transform: translateX(20px);
-  }
-
+}
 
 input[type=date] {
     border: none;
@@ -198,35 +201,6 @@ input[type=date] {
 .row-between button:hover {
     background-color: rgba(0, 0, 0, .2);
 }
-/*
-.menu .item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-}
-
-.menu .item-view > span {
-    font-weight: 700;
-    font-size: 16px;
-    margin-block: 4px;
-}
-
-.item button {
-    border: none;
-    outline: none;
-    background-color: transparent;
-}
-
-.dark-on {
-    display: var(--show);
-}
-
-.dark-off {
-    display: var(--hide);
-}
-*/
 
 .clock-view {
     width: auto;
@@ -270,24 +244,21 @@ input[type=date] {
 }
 
 .seconds {
-    /*background-color: #00ff00ff;*/
     width: 2px;
 }
 
 .hours {
-    /*background-color: #0000ff55;*/
     width: 2px;
     top: 34px;
     height: 30%;
 }
 
 .minutes {
-    /*background-color: #ff000055;*/
     width: 2px;
     top: 16px;
     height: 40%;
 }
-
+/*
 .seconds:before,
 .hours:before,
 .minutes:before {
@@ -313,21 +284,21 @@ input[type=date] {
     content: "m";
     position: absolute;
     width: 2px;
-}
-/*
+}*/
+
 .minutes:after,
 .hours:after,
 .seconds:after
 {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 1px;
+    height: 100%;
     bottom: 0;
     left: 0;
     border-radius: 999px;
     background-color: #BEC2FF;
-}*/
+}
 
 .numeric-clock {
     gap: 1rem;
@@ -484,5 +455,41 @@ a {
 
 svg {
     fill: var(--theme-app-text);
+}
+
+.events-notifs {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    transition: all 3s ease;
+}
+
+.events-notifs:hover {}
+
+.open-collapse {
+    display: flex;
+}
+
+div.collapse-buttons .collapse-button-opened {
+    display: none;
+}
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 99999;
+    gap: .4rem;
+    background-color: var(--theme-loading-bg);
+}
+
+.loading {
+   width: 100%;
 }
 
