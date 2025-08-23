@@ -1,12 +1,9 @@
-import { Tray, app, BrowserWindow, ipcMain, Notification } from "electron";
+import { app, BrowserWindow, ipcMain, Notification } from "electron";
 import path from "path";
 
 let win: any;
 
-
 function createWindow() {
-	const tray = new Tray('src/assets/images/cover.png');
-	tray.setToolTip('Calendrier');
 	win = new BrowserWindow({
 		width: 800,
 		height: 600,
@@ -34,7 +31,12 @@ function createWindow() {
 	}
 }
 
-ipcMain.on('window:close', () => { if (win) win.close(); });
+ipcMain.on('window:close', (e) => {
+	if (win) {
+		// e.preventDefault();
+		win.close();
+	}
+});
 ipcMain.on('window:minimize', () => { if (win) win.minimize(); });
 ipcMain.on('showNotification', (event, ...args) => {
   const [type, title, body] = args;
