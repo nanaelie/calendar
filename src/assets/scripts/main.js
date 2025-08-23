@@ -29,6 +29,69 @@ const events = {
     }
 };
 
+const all_events = {
+    "fr": {
+        "1": [{"d": 1, "e": "Nouvelle année"}, {"d": 29, "e": "Début du Ramadan"}, {"d": 26, "e": "Lailat al-Qadr (Nuit du destin)"}, {"d": 29, "e": "Nouvel An tibétain (Losar)"}],
+        "2": [{"d": 4, "e": "Journée mondiale contre le cancer"}, {"d": 28, "e": "Aïd el-Fitr"}, {"d": 12, "e": "Magha Puja"}],
+        "3": [{"d": 8, "e": "Journée internationale des droits des femmes"},{"d": 20, "e": "Journée internationale du bonheur"},{"d": 21, "e": "Journée internationale pour l'élimination de la discrimination raciale"},{"d": 22, "e": "Journée mondiale de l'eau"}, {"d": 7, "e": "Début du Hajj"}, {"d": 8, "e": "Aïd al-Adha"}, {"d": 14, "e": "Holi"}],
+        "4": [{"d": 7, "e": "Journée mondiale de la santé"},{"d": 22, "e": "Journée de la Terre"}, {"d": 19, "e": "Pâques"}, {"d": 13, "e": "Dimanche des Rameaux"}, {"d": 13, "e": "Pessa'h"}],
+        "5": [{"d": 1, "e": "Fête du Travail"},{"d": 3, "e": "Journée mondiale de la liberté de la presse"}, {"d": 10, "e": "Vesak"}],
+        "6": [{"d": 5, "e": "Journée mondiale de l'environnement"},{"d": 20, "e": "Journée mondiale des réfugiés"},{"d": 21, "e": "Journée internationale du yoga"}],
+        "7": [{"d": 30, "e": "Journée internationale de l'amitié"}, {"d": 13, "e": "Asalha Puja"}],
+        "8": [{"d": 9, "e": "Journée internationale des peuples autochtones"},{"d": 12, "e": "Journée internationale de la jeunesse"}, {"d": 15, "e": "Assomption"}, {"d": 30, "e": "Janmashtami"}],
+        "9": [{"d": 8, "e": "Journée internationale de l'alphabétisation"},{"d": 15, "e": "Journée internationale de la démocratie"},{"d": 21, "e": "Journée internationale de la paix"}, {"d": 2, "e": "Ganesh Chaturthi"}, {"d": 29, "e": "Navaratri"}],
+        "10": [{"d": 1, "e": "Journée internationale des personnes âgées"},{"d": 5, "e": "Journée mondiale des enseignants"},{"d": 16, "e": "Journée mondiale de l'alimentation"},{"d": 24, "e": "Journée des Nations Unies"}, {"d": 3, "e": "Roch Hashana"}, {"d": 12, "e": "Yom Kippour"}, {"d": 17, "e": "Soukkot"}, {"d": 21, "e": "Diwali"}],
+        "11": [{"d": 1, "e": "Toussaint"}, {"d": 14, "e": "Journée mondiale du diabète"},{"d": 20, "e": "Journée mondiale de l'enfance"}],
+        "12": [{"d": 25, "e": "Noël"}, {"d": 25, "e": "Hanoucca"}, {"d": 8, "e": "Bodhi Day"}, {"d": 1, "e": "Journée mondiale de lutte contre le sida"},{"d": 10, "e": "Journée des droits de l'homme"}]
+    }
+}
+
+const events_by_categories = {
+    "inter": {
+        "1": [{"d": 1, "e": "Bonne année !"}],
+        "2": [{"d": 4, "e": "Journée mondiale contre le cancer"}],
+        "3": [{"d": 8, "e": "Bonne journée internationale des droits des femmes"},{"d": 20, "e": "Journée internationale du bonheur"},{"d": 21, "e": "Journée internationale pour l'élimination de la discrimination raciale"},{"d": 22, "e": "Journée mondiale de l'eau"}],
+        "4": [{"d": 7, "e": "Journée mondiale de la santé"},{"d": 22, "e": "Journée de la Terre"}],
+        "5": [{"d": 1, "e": "Bonne fête du Travail"},{"d": 3, "e": "Journée mondiale de la liberté de la presse"}],
+        "6": [{"d": 5, "e": "Journée mondiale de l'environnement"},{"d": 20, "e": "Journée mondiale des réfugiés"},{"d": 21, "e": "Journée internationale du yoga"}],
+        "7": [{"d": 30, "e": "Journée internationale de l'amitié"}],
+        "8": [{"d": 9, "e": "Journée internationale des peuples autochtones"},{"d": 12, "e": "Journée internationale de la jeunesse"}],
+        "9": [{"d": 8, "e": "Journée internationale de l'alphabétisation"},{"d": 15, "e": "Journée internationale de la démocratie"},{"d": 21, "e": "Journée internationale de la paix"}],
+        "10": [{"d": 1, "e": "Journée internationale des personnes âgées"},{"d": 5, "e": "Journée mondiale des enseignants"},{"d": 16, "e": "Journée mondiale de l'alimentation"},{"d": 24, "e": "Journée des Nations Unies"}],
+        "11": [{"d": 14, "e": "Journée mondiale du diabète"},{"d": 20, "e": "Journée mondiale de l'enfance"}],
+        "12": [{"d": 1, "e": "Journée mondiale de lutte contre le sida"},{"d": 10, "e": "Journée des droits de l'homme"}]
+    },
+    "chrétien": {
+        "4": [{"d": 19, "e": "Pâques"}, {"d": 13, "m": 4, "e": "Dimanche des Rameaux"}],
+        "8": [{"d": 15, "e": "Assomption"}],
+        "11": [{"d": 1, "e": "Toussaint"}],
+        "12": [{"d": 25, "e": "Noël"}]
+    },
+    "musulman": {
+        "1": [{"d": 29, "e": "Début du Ramadan"}, {"d": 26, "e": "Lailat al-Qadr (Nuit du destin)"}],
+        "2": [{"d": 28, "e": "Aïd el-Fitr"}],
+        "3": [{"d": 7, "e": "Début du Hajj"}, {"d": 8, "e": "Aïd al-Adha"}],
+    },
+    "juif": {
+        "4": [{"d": 13, "e": "Pessa'h"}],
+        "10": [{"d": 3, "e": "Roch Hashana"}, {"d": 12, "e": "Yom Kippour"}, {"d": 17, "e": "Soukkot"}],
+        "12": [{"d": 25, "m": 12, "e": "Hanoucca"}]
+    },
+    "hindou": {
+        "3": [{"d": 14, "m": 3, "e": "Holi"}],
+        "8": [{"d": 30, "m": 8, "e": "Janmashtami"}],
+        "9": [{"d": 2, "m": 9, "e": "Ganesh Chaturthi"}, {"d": 29, "m": 9, "e": "Navaratri"}],
+        "10": [{"d": 21, "m": 10, "e": "Diwali"}]
+    },
+    "bouddhiste": {
+        "1": [{"d": 29, "e": "Nouvel An tibétain (Losar)"}],
+        "2": [{"d": 12, "e": "Magha Puja"}],
+        "5": [{"d": 10, "e": "Vesak"}],
+        "7": [{"d": 13, "e": "Asalha Puja"}],
+        "12": [{"d": 8, "e": "Bodhi Day"}]
+      }
+}
+
 const messages = [
     "Passe une excellente journée !",
     "Bonne chance pour aujourd'hui !",
@@ -72,42 +135,56 @@ function joursSemaine() {
         calendrier.appendChild(div);
     }
 }
-joursSemaine();
-
-let event = 1;
-let mois = 1;
-let moisStorage = 0;
 
 function calendar(mois) {
-    calendrier.setAttribute('data-id', mois);
+    //const mois = date.getMonth();
     
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = now.getMonth() + mois;
-    var lastMonth = month - 1;
-    moisStorage = month;
-    
-    var days = new Date(year, month, 0).getDate();
-    var jour = new Date(year, month - 1, 0).getDay() + 1;
-    var lastMonthDays = new Date(year, lastMonth, 0).getDate();
-    var jourActu = now.getDate();
-    
-    let mois_str = moi(month);
-    mois_str = mois_str[0].toUpperCase() + mois_str.substr(1, mois_str.length - 1);
-    
-    $('.date span').textContent = mois_str + " " + year;
+    calendrier.setAttribute('data-id', mois);    
+    var date = new Date(2025, new Date().getMonth() + mois, new Date(2025, new Date().getMonth(), new Date().getDate()).getDate());
 
-    for (let i = 1; i <= days + jour - 1; i++) {
+    var days = new Date(new Date().getFullYear(), new Date().getMonth() + mois + 1, 0).getDate();    
+    var pjdls = new Date(new Date().getFullYear(), new Date().getMonth() + mois, 0).getDay() + 1;
+    
+    fillValues(days, pjdls, date)
+}
+
+function goto(date) {
+    const mois = date.getMonth();
+    calendrier.setAttribute('data-id', mois);
+
+    var days = new Date(date.getFullYear(), date.getMonth() + mois, 0).getDate();
+    var pjdls = new Date(date.getFullYear(), date.getMonth(), 0).getDay() + 1;
+    
+    fillValues(days, pjdls, date);
+}
+
+function fillValues(days, pjdls, date) {
+    var day_ = date.getDay();
+    var date_ = date.getDate();
+    var month_ = date.getMonth();
+    var year_ = date.getFullYear();
+    
+    let mois_str = moi(month_);
+    mois_str = mois_str[0].toUpperCase() + mois_str.substr(1, mois_str.length - 1);
+    $('.date span').textContent = mois_str + " " + year_;
+    $('.date h3').textContent = jou(day_) + " " + date_ + " " + moi(month_) + " " + year_;
+
+    $('.calendrier').innerHTML = "";
+    joursSemaine();
+
+    for (let i = 1; i <= days + pjdls - 1; i++) {
         const div = document.createElement("div");
         
-        if (i >= jour) {
+        if (i >= pjdls) {
             div.setAttribute("class", "jouri");
-            div.textContent = i - jour + 1;
-            const ndate = new Date(year, month - 1, i - jour + 1);
-            if ((i - jour + 1) == jourActu) {
+            div.textContent = i - pjdls + 1;
+            if ((i - pjdls + 1) == date_) {
                 div.classList.add("now");
             }
-            const ev = getEventMessage(ndate);
+            const ev = getEventMessage({
+                d: i - pjdls + 1, 
+                m: month_ + 1
+            });
             if (ev) {
                 const sub = document.createElement('sub');
                 sub.classList.add('event');
@@ -115,17 +192,12 @@ function calendar(mois) {
                 div.classList.add('event-node');
                 div.setAttribute('title', ev);
             }
-            /*if ((i - jour + 1) == 22) {
-                const sub = document.createElement('sub');
-                sub.classList.add('event');
-                div.appendChild(sub);
-                div.classList.add('event-node');
-            }*/
         }
         calendrier.appendChild(div);
     }
 }
 
+/*
 setInterval(() => {
     var now = new Date();
     const dateDuJour = $(".date h3");
@@ -138,7 +210,7 @@ setInterval(() => {
 
     dateDuJour.textContent = jou(j) + " " + ji + " " + moi(m) + " " + a;
 }, 1000);
-
+*/
 function jou(j) {
     switch (j) {
         case 1: j = "Lundi";break;
@@ -154,18 +226,18 @@ function jou(j) {
 
 function moi(m) {
     switch (m) {
-        case 1: m = "janvier"; break; 
-        case 2: m = "février"; break;
-        case 3: m = "mars"; break;
-        case 4: m = "avril"; break;
-        case 5: m = "mai"; break;
-        case 6: m = "juin"; break;
-        case 7: m = "juillet"; break;
-        case 8: m = "août"; break;
-        case 9: m = "septembre"; break;
-        case 10: m = "octobre"; break;
-        case 11: m = "novembre"; break;
-        case 12: m = "décembre"; break;
+        case 0: m = "janvier"; break; 
+        case 1: m = "février"; break;
+        case 2: m = "mars"; break;
+        case 3: m = "avril"; break;
+        case 4: m = "mai"; break;
+        case 5: m = "juin"; break;
+        case 6: m = "juillet"; break;
+        case 7: m = "août"; break;
+        case 8: m = "septembre"; break;
+        case 9: m = "octobre"; break;
+        case 10: m = "novembre"; break;
+        case 11: m = "décembre"; break;
     }
     return m;
 }
@@ -187,25 +259,24 @@ function applyTheme(theme) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    calendar(2);
+    const __date = new Date();
+    
+    calendar(0);
     
     let saved = localStorage.getItem('theme') || 'dark';
     applyTheme(saved);
     
-    $('#notif-switch').checked = true;
+    $$('input[type=checkbox]').forEach(i => {i.checked = true});
     
     const today = new Date();
     const year  = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // les mois sont 0-indexés
+    const month = String(today.getMonth() + 1).padStart(2, '0');
     const day   = String(today.getDate()).padStart(2, '0');
 
     const formatted = `${year}-${month}-${day}`;
     $('#date-input').value = formatted;
+    setTimeout(() => { $('.loading').style.display = 'none'; }, 2000);
 });
-
-$('#date-input').onchange = (e) => {
-    return;
-}
 
 function getRandomMessage() {
     const index = Math.floor(Math.random() * messages.length);
@@ -213,12 +284,16 @@ function getRandomMessage() {
 }
 
 let notificationSent = false;
+let eventExistaneChecked = false;
 
 setInterval(() => {
     var now = new Date();
     var hours = now.getHours();
     var minutes = now.getMinutes();
     var seconds = now.getSeconds();
+    
+    var d = now.getDay();
+    var m = now.getMonth();
     
     if (hours === 7 && minutes === 0 && seconds === 0) {
         if (!notificationSent) {
@@ -228,11 +303,23 @@ setInterval(() => {
     } else {
         notificationSent = false;
     }
+    
+    if (hours === 7 && minutes === 30 && seconds === 0) {
+        if (!eventExistaneChecked) {
+            const ev = getEventMessage({d, m});
+            if (ev) {
+                sendNotification('event', 'Evenement', ev);
+            }
+            eventExistaneChecked = true;
+        }
+    } else {
+        eventExistaneChecked = false;
+    }
 
-    $('.hours-numeric').textContent = hours < 10 ? `0${hours}` : hours;
-    $('.minutes-numeric').textContent = minutes < 10 ? `0${minutes}` : minutes;
-    $('.seconds-numeric').textContent = seconds < 10 ? `0${seconds}` : seconds;
-
+    $('.hours-numeric').textContent = String(hours).padStart(2, '0');
+    $('.minutes-numeric').textContent = String(minutes).padStart(2, '0');
+    $('.seconds-numeric').textContent = String(seconds).padStart(2, '0');
+    
     let rotate_hours = mapValue(hours, 0, 12, 0, 360);
     let rotate_minutes = mapValue(minutes, 0, 60, 0, 360);
     let rotate_seconds = mapValue(seconds, 0, 60, 0, 360);
@@ -248,6 +335,11 @@ function mapValue(value, min_1, max_1, min_2, max_2) {
 
 $('.header div.actions:last-child button.button').onclick = () => {
     $('.menu').classList.toggle('show-menu');
+    if ($('.menu').classList.contains('show-menu')) {
+        $('.main-view').addEventListener('click', () => {
+            $('.menu').classList.remove('show-menu');
+        })
+    }
 } 
 
 $('#theme-toggle').addEventListener('click', (e) => {
@@ -256,9 +348,10 @@ $('#theme-toggle').addEventListener('click', (e) => {
     applyTheme(next);
 });
 
-$('#date-input').addEventListener('change', (e) => {
-    const d = this.value;
-    console.log("go to date:", d);
+$('.goto').addEventListener('click', (e) => {
+    const d = new Date($('#date-input').value);
+    
+    goto(d);
 });
 
 $('#notif-switch').addEventListener('change', (e) => {
@@ -270,38 +363,70 @@ $('#notif-switch').addEventListener('change', (e) => {
   });
   
 $('.left').onclick = function() {
-    return;
     let id = Number($('.calendrier').dataset.id);
     if (id !== null) {
-        calendar(id--);
+        id--;
+        calendar(id);
     }
 }
 
 $('.right').onclick = function() {
-    return;
     let id = Number($('.calendrier').dataset.id);
     if (id !== null) {
-        calendar(id++);
+        id++;
+        calendar(id);
     }
 }
 
 function getEventMessage(date) {
-  let day, month;
-  
-  if (date instanceof Date) {
-    day = date.getDate();
-    month = date.getMonth() + 1;
-  } else if (date.d && date.m) {
-    day = date.d;
-    month = date.m;
-  } else {
-    throw new Error("Date invalide, utilisez un objet Date ou {d,m}");
-  }
+    let day, month;
 
-  if (events.fr[month]) {
-    const ev = events.fr[month].find(e => e.d === day);
-    if (ev) return ev.e;
-  }
-  return null;
+    if (date instanceof Date) {
+        day = date.getDate();
+        month = date.getMonth() + 1;
+    } else if (date.d && date.m) {
+        day = date.d;
+        month = date.m;
+    } else {
+        throw new Error("Date invalide, utilisez un objet Date ou {d,m}");
+    }
+
+    if (all_events.fr[month]) {
+        const ev = all_events.fr[month].find(e => e.d === day);
+        if (ev) return ev.e;
+    }
+    return null;
 }
+
+function getEvents(date, categories = []) {
+    let day, month;
+
+    if (date instanceof Date) {
+        day = date.getDate();
+        month = date.getMonth() + 1;
+    } else if (date.d && date.m) {
+        day = date.d;
+        month = date.m;
+    } else {
+        throw new Error("Date invalide, utilisez un objet Date ou {d,m}");
+    }
+    
+    if (all_events.fr[month]) {
+        const ev = all_events.fr[month].find(e => e.d === day);
+        if (ev) return ev.e;
+    }
+    return null;
+}
+
+$('div.collapse-buttons button').onclick = () => {
+    $('.events-notifs').classList.toggle('open-collapse');
+    if ($('.events-notifs').classList.contains('open-collapse')) {
+        $('.collapse-button-opened').style.display = 'block';
+        $('.collapse-button-closed').style.display = 'none';
+    } else {
+        $('.collapse-button-closed').style.display = 'block';
+        $('.collapse-button-opened').style.display = 'none';
+    }
+}
+
 
