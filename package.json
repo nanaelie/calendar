@@ -1,13 +1,13 @@
 {
-  "name": "Calendrier",
-  "version": "1.0.1",
-  "description": "Une application calendrier minimaliste pour bureau et mobile",
+  "name": "calendrier",
+  "version": "1.0.6",
+  "description": "Une application calendrier minimaliste pour bureau",
   "author": {
     "name": "Nana Elie",
     "email": "nae.devp@gmail.com",
     "url": "https://github.com/nanaelie"
   },
-  "homepage": "https://github.com/nanaelie/electron-calendar",
+  "homepage": "https://github.com/nanaelie/calendar",
   "main": "dist/main.js",
   "scripts": {
     "start": "tsc && electron .",
@@ -21,8 +21,6 @@
     "electron": "^26.6.10",
     "electron-builder": "^26.0.12",
     "nodemon": "^3.1.10",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
@@ -48,18 +46,26 @@
     ],
     "win": {
       "icon": "src/assets/images/icon.ico",
-      "target": ["nsis"]
+      "target": [
+        "nsis"
+      ]
     },
     "mac": {
       "icon": "src/assets/images/icon.icns",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "linux": {
       "icon": "src/assets/images",
       "category": "Office",
       "maintainer": "Nana Elie nae.devp@gmail.com",
-      "target": ["AppImage", "deb", "snap"]
+      "target": [
+        "AppImage",
+        "deb",
+        "snap"
+      ]
     }
   }
 }
-
