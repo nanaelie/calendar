@@ -1,9 +1,7 @@
 name: Build & Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:   # lancement manuel
 
 jobs:
   build:
@@ -27,9 +25,11 @@ jobs:
       - name: Build app
         run: npm run dist
 
-      - name: Upload to release
+      - name: Upload release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v1.0.6   # tu peux le changer ou le passer en input
+          name: "Calendrier v1.0.6"
           files: dist_build/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
