@@ -1,7 +1,7 @@
 name: Build & Release
 
 on:
-  workflow_dispatch:   # lancement manuel
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
       - name: Upload release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.6   # tu peux le changer ou le passer en input
+          tag_name: v1.0.6
           name: "Calendrier v1.0.6"
           files: dist_build/**
         env:
