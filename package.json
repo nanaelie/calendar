@@ -8,7 +8,7 @@
     "url": "https://github.com/nanaelie"
   },
   "homepage": "https://github.com/nanaelie/calendar",
-  "main": "dist/main.js",
+  "main": "compiled/main.js",
   "scripts": {
 	  "start": "tsc && electron .",
 	  "dev": "tsc --watch && electron .",
