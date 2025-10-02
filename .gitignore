@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 electron
 dist_build
+com.nae.calendar.*
