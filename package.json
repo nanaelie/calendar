@@ -8,14 +8,12 @@
     "url": "https://github.com/nanaelie"
   },
   "homepage": "https://github.com/nanaelie/calendar",
-  "main": "compiled/main.js",
+  "main": "dist/main.js",
   "scripts": {
-	  "start": "tsc && electron .",
-	  "dev": "tsc --watch && electron .",
-	  "devn": "electron .",
-	  "build": "tsc",
-	  "dist": "tsc && electron-builder"
-	},
+    "start": "tsc && electron .",
+    "dev": "tsc --watch && electron .",
+    "devn": "electron ."
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.0",
@@ -68,11 +66,6 @@
         "deb",
         "snap"
       ]
-    },
-    "publish": [
-    {
-      "provider": "github"
     }
-  ]
   }
 }
