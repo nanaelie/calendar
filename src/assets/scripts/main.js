@@ -197,20 +197,6 @@ function fillValues(days, pjdls, date) {
     }
 }
 
-/*
-setInterval(() => {
-    var now = new Date();
-    const dateDuJour = $(".date h3");
-    var j = now.getDay();
-    var ji = now.getDate();
-    var m = now.getMonth() + 1;
-    var a = now.getFullYear();
-
-    ji < 10 ? ji = '0' + ji : ji;
-
-    dateDuJour.textContent = jou(j) + " " + ji + " " + moi(m) + " " + a;
-}, 1000);
-*/
 function jou(j) {
     switch (j) {
         case 1: j = "Lundi";break;

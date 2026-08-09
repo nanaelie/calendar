@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+}
+
+@font-face {
+    font-family: "tone";
+    src: url(./../fonts/PaytoneOne-Regular.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: "sans";
+    src: url(./../fonts/DMSans-VariableFont.ttf) format(truetype);
+}
+
+.dmsans {
+    font-family: "sans";
+}
+
+.tone {
+    font-family: "tone";
+}
+
+
+:root {
+    --show: block;
+    --hide: none;
+    --theme-menu-bg: #181818;
+    --display: none;
+    --theme-app-bg: #292830;
+    --theme-app-text: #ffffff;
+    --theme-loading-bg: #292830;
+}
+
+* {
+    margin: 0;
+    user-select: none;
+    font-family: "sans";
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    @apply m-0 w-full h-full select-none font-sans 
+           bg-[var(--theme-app-bg)] text-[var(--theme-app-text)] 
+           rounded-3xl overflow-hidden;
+}
+
+.dark {
+    --theme-menu-bg: #181818;
+    --theme-app-bg: #292830;
+    --theme-app-text: #ffffff;
+    --theme-loading-bg: #292830;
+}
+
+.light {
+    --theme-menu-bg: #e6e6fa;
+    --theme-app-bg: #0000ff55;
+    --theme-app-text: #292830;
+    --theme-loading-bg: #a1a1f2;
+}
+
+/* Buttons */
+button {
+    @apply p-1.5 border-0 flex items-center justify-center outline-none cursor-pointer 
+           rounded-full bg-transparent hover:bg-[rgba(0,0,0,0.2)];
+}
+
+button {
+    -webkit-app-region: no-drag;
+    @apply bg-inherit text-inherit;
+}
+
+/* Switch */
+.switch {
+    @apply relative inline-block w-10 h-5;
+}
+
+.switch input {
+    @apply hidden;
+}
+
+.slider {
+    @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 
+           bg-gray-400 rounded-[34px] transition-all duration-200;
+}
+
+.slider:before {
+    @apply absolute content-[''] h-4 w-4 left-0.5 top-0.5 
+           bg-white rounded-full transition-all duration-200;
+}
+
+input:checked + .slider {
+    @apply bg-green-500;
+}
+
+input:checked + .slider:before {
+    @apply translate-x-5;
+}
+
+/* Header */
+.header {
+    -webkit-app-region: drag;
+    @apply absolute top-0 left-0 w-full px-4 py-2 flex items-center justify-between 
+           z-[999999] shadow-[0_0_25px_1px_rgb(0,0,0,0.2)];
+}
+
+.header .actions {
+    @apply flex items-center justify-center gap-4;
+}
+
+.header .actions button {
+    @apply p-1.5 border-none flex items-center justify-center outline-none cursor-pointer 
+           rounded-full transition-all hover:bg-[rgba(0,0,0,0.2)];
+}
+
+/* Menu */
+.menu {
+    @apply w-[300px] absolute top-10 right-8 z-[1000] p-4 rounded-lg 
+           bg-[var(--theme-menu-bg)] hidden flex-col items-center gap-1 
+           shadow-xl transition-all;
+}
+
+.show-menu {
+    @apply flex;
+}
+
+/* Setting Row */
+.setting-row {
+    @apply flex w-full justify-between items-center mb-1;
+}
+
+.setting-row + .setting-row {
+    @apply border-t border-white/10 pt-1.5;
+}
+
+/* Date */
+.date h3 {
+    @apply text-base;
+}
+
+.date span {
+    @apply mb-6 font-bold text-2xl font-['tone'];
+}
+
+/* Row Between */
+.row-between {
+    @apply w-full flex items-center justify-between;
+}
+
+.row-between button {
+    @apply bg-inherit outline-none border-none p-1 cursor-pointer rounded hover:bg-[rgba(0,0,0,0.2)];
+}
+
+/* Clock */
+.clock-view {
+    @apply flex flex-col items-center justify-center gap-8;
+}
+
+.clock {
+    @apply w-[180px] h-[180px] rounded-full border border-white/30 flex items-center justify-center 
+           relative overflow-hidden shadow-[0_0_100px_1px_rgb(0,0,0,0.3)];
+}
+
+.hours,
+.minutes,
+.seconds {
+    @apply absolute bg-[var(--theme-app-text)] rounded-full shadow-[0_0_15px_2px_#eee] 
+           flex items-center justify-center origin-bottom-left;
+}
+
+.seconds  { @apply w-0.5; }
+.hours    { @apply w-0.5 top-[34px] h-[30%]; }
+.minutes  { @apply w-0.5 top-4 h-2/5; }
+
+/* Numeric Clock */
+.numeric-clock {
+    @apply flex items-center justify-center gap-4;
+}
+
+.numeric-clock div {
+    @apply font-['tone'];
+}
+
+/* Nodes (minutes marks) */
+div[class^="node-m-"] {
+    @apply w-1 h-full text-xs rounded-full absolute flex items-start justify-center z-[999];
+}
+
+.node-m-0  { transform: rotate(0deg); }
+.node-m-5  { transform: rotate(30deg); }
+.node-m-10 { transform: rotate(60deg); }
+.node-m-15 { transform: rotate(90deg); }
+.node-m-20 { transform: rotate(120deg); }
+.node-m-25 { transform: rotate(150deg); }
+.node-m-30 { transform: rotate(180deg); }
+.node-m-35 { transform: rotate(210deg); }
+.node-m-40 { transform: rotate(240deg); }
+.node-m-45 { transform: rotate(270deg); }
+.node-m-50 { transform: rotate(300deg); }
+.node-m-55 { transform: rotate(330deg); }
+.node-m-60 { transform: rotate(360deg); }
+
+/* Links */
+a {
+    @apply text-inherit no-underline;
+}
+
+/* Masonry */
+.masonry {
+    @apply items-start scrollbar-hide max-h-[80vh] overflow-y-auto;
+}
+
+/* About text */
+.setting-row .about-text {
+    @apply flex flex-col text-xs text-gray-400 mt-1 text-center leading-tight;
+}
+
+.setting-row .about-text p {
+    @apply my-0.5;
+}
+
+svg {
+    @apply fill-[var(--theme-app-text)];
+}
+
+/* Input date */
+input[type="date"] {
+    @apply border-none bg-inherit outline-none text-inherit;
+}
+
+.events-notifs {
+    @apply w-full hidden flex-col transition-all duration-300 ease-linear;
+}
+
+.open-collapse {
+    @apply flex;
+}
+
+div.collapse-buttons .collapse-button-opened {
+    @apply hidden;
+}
+
+.loading {
+    @apply w-full h-dvh absolute top-0 left-0 items-center justify-center text-lg z-[99999] gap-1.5 bg-[#a1a1f2] dark:bg-[#292930];
+}
