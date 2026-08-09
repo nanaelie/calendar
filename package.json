@@ -21,12 +21,12 @@
 		"url": "https://github.com/nanaelie/calendar/issues"
 	},
 	"dependencies": {
-		"bootstrap-icons": "^1.13.1",
-		"tailwindcss": "^3.4.19"
+		"bootstrap-icons": "^1.13.1"
 	},
 	"devDependencies": {	
 		"electron-builder": "^26.15.3",
-		"electron": "^43.1.1"
+		"electron": "^43.1.1",
+		"tailwindcss": "^3.4.19"
 	},
 	"build": {
 		"appId": "com.nae.calendar",
